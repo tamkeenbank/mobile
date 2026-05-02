@@ -1,31 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
-    <title>Tamkeen Bank - Redirecting</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamkeen Bank App | بنك تمكين</title>
     <script>
         (function() {
             var ua = navigator.userAgent || navigator.vendor || window.opera;
             var isAndroid = /android/i.test(ua);
             var isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
-            // Official Store Links
             var androidUrl = "https://play.google.com/store/apps/details?id=com.AamalTech.tamkeenbank";
             var iosUrl = "https://apps.apple.com/app/id6499384741";
+            var fallbackUrl = "http://www.tamkeenbank-ye.com/";
 
             if (isAndroid) {
                 window.location.replace(androidUrl);
             } else if (isIOS) {
                 window.location.replace(iosUrl);
             } else {
-                // Default for Desktop users
-                window.location.replace(iosUrl);
+                window.location.replace(fallbackUrl);
             }
         })();
     </script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; padding-top: 100px; color: #333; }
+        .loader { border: 4px solid #f3f3f3; border-top: 4px solid #0056b3; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 20px auto; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
 </head>
 <body>
-    <p style="text-align: center; font-family: sans-serif; margin-top: 50px;">
-        Redirecting to the App Store...
-    </p>
+    <div class="loader"></div>
+    <h2>Tamkeen Bank App</h2>
+    <h3>تطبيق بنك تمكين</h3>
+    <p>Redirecting to the App Store...</p>
+    <p>جاري تحويلك إلى متجر التطبيقات...</p>
 </body>
 </html>
