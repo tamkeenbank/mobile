@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Redirecting...</title>
+    <title>Tamkeen Bank - Redirecting</title>
     <script>
-        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        
-        // Your Tamkeen Bank Store URLs
-        var androidUrl = "https://play.google.com/store/apps/details?id=com.AamalTech.tamkeenbank";
-        var iosUrl = "https://apps.apple.com/us/app/tamkeen-bank/id6499384741";
+        (function() {
+            var ua = navigator.userAgent || navigator.vendor || window.opera;
+            var isAndroid = /android/i.test(ua);
+            var isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
-        if (/android/i.test(userAgent)) {
-            window.location.replace(androidUrl);
-        } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-            window.location.replace(iosUrl);
-        } else {
-            // Default for desktop users
-            window.location.replace(iosUrl);
-        }
+            // Official Store Links
+            var androidUrl = "https://play.google.com/store/apps/details?id=com.AamalTech.tamkeenbank";
+            var iosUrl = "https://apps.apple.com/app/id6499384741";
+
+            if (isAndroid) {
+                window.location.replace(androidUrl);
+            } else if (isIOS) {
+                window.location.replace(iosUrl);
+            } else {
+                // Default for Desktop users
+                window.location.replace(iosUrl);
+            }
+        })();
     </script>
 </head>
 <body>
-    <p>Redirecting to the App Store...</p>
+    <p style="text-align: center; font-family: sans-serif; margin-top: 50px;">
+        Redirecting to the App Store...
+    </p>
 </body>
 </html>
